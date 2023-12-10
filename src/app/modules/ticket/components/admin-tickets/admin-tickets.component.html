@@ -1,0 +1,80 @@
+<div>
+ <app-admin-side-bar></app-admin-side-bar>
+  <app-header></app-header>
+
+  <div class="br-mainpanel">
+
+    <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
+      <h4 class="tx-gray-800 mg-b-5">Ver los Tickets Creados</h4>
+      <p class="mg-b-0">Una colección donde se puede ver todos los tickets que los empleados han creado.</p>
+    </div>
+
+    <div class="br-pagebody">
+      <div class="br-section-wrapper">
+        <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Tickets</h6>
+        <p class="mg-b-25 mg-lg-b-50">Presionar el botón de Generar Reporte para descargar un PDF.</p>
+
+        <div class="row mg-b-25">
+          <div class="col-lg-4">
+            <input id="searchbox" type="text" class="form-control" placeholder="Buscar..." [(ngModel)]="searchText">
+          </div>
+          <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="selectedStatus" (change)="filterByStatus()" >
+              <option label="Todos los estados"></option>
+              <option *ngFor="let status of statusTickets" [value]="status">{{ status }}</option>
+            </select>
+          </div>
+          <div class="col-lg-4">
+            <select class="form-control" [(ngModel)]="selectedTicketType" (change)="filterByTicketType()">
+              <option label="Tipo de Tickets"></option>
+              <option *ngFor="let ticketType of typeTickets" [value]="ticketType">{{ ticketType }}</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="bd bd-gray-300 rounded table-responsive">
+          <div class="table-wrapper">
+
+            <table class="table mg-b-0" id="content"  *ngIf="LISTTICKETS.length > 0">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Departmento</th>
+                  <th>Título</th>
+                  <th>Descripción</th>
+                  <th>Estado</th>
+                  <th>Tipo</th>
+                  <th>Observaciones</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let ticket of LISTTICKETS | search: searchText">
+                  <td>{{ ticket.FullName }}</td>
+                  <td>{{ ticket.department }}</td>
+                  <td>{{ ticket.title }}</td>
+                  <td>{{ ticket.description }}</td>
+                  <td>{{ ticket.status }}</td>
+                  <td>{{ ticket.type  }}</td>
+                  <td>{{ ticket.adminComment}}</td>
+                  <td> <i [routerLink]="['/update-ticket', ticket._id]"class="fa-solid fa-pen-to-square"></i> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!-- bd -->
+
+        <div class="form-layout-footer button-space">
+          <button (click)="onPrint()" class="btn btn-info">Generar Reporte</button>
+        </div><!-- form-layout-footer -->
+
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+
+</div>
+
+

@@ -1,0 +1,103 @@
+<div class="br-mainpanel">
+  <div class="pd-30">
+    <h4 class="tx-gray-800 mg-b-5">Dashboard</h4>
+    <p class="mg-b-0">Colección de datos para medir KPI.</p>
+  </div><!-- d-flex -->
+
+  <div class="br-pagebody mg-t-5 pd-x-30">
+    <div class="row row-sm">
+      <div class="col-sm-6 col-xl-3">
+        <div class="bg-teal rounded overflow-hidden">
+          <div class="pd-25 d-flex align-items-center">
+            <i class="ion ion-earth tx-60 lh-0 tx-white op-7"></i>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total de Tickets Creados por Empleados</p>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{Quantity > 0 ? Quantity: 0}}</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- col-3 -->
+      <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
+        <div class="bg-danger rounded overflow-hidden">
+          <div class="pd-25 d-flex align-items-center">
+            <i class="ion ion-bag tx-60 lh-0 tx-white op-7"></i>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total de Tickets En Estado Abierto</p>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{ OpenedTickets > 0 ? OpenedTickets: 0}}</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- col-3 -->
+      <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+        <div class="bg-primary rounded overflow-hidden">
+          <div class="pd-25 d-flex align-items-center">
+            <i class="ion ion-monitor tx-60 lh-0 tx-white op-7"></i>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total de Tickets En Estado Cerrado</p>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{ ClosedTickets > 0 ? ClosedTickets: 0 }}</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- col-3 -->
+      <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+        <div class="bg-br-primary rounded overflow-hidden">
+          <div class="pd-25 d-flex align-items-center">
+            <i class="ion ion-clock tx-60 lh-0 tx-white op-7"></i>
+            <div class="mg-l-20">
+              <p class="tx-10 tx-spacing-1 tx-mont tx-medium tx-uppercase tx-white-8 mg-b-10">Total de Inventario de Bienes Creados</p>
+              <p class="tx-24 tx-white tx-lato tx-bold mg-b-2 lh-1">{{QuantityInventory > 0 ? QuantityInventory: 0}}</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- col-3 -->
+    </div><!-- row -->
+
+    <div class="container-fluid">
+      <div class="row mg-t-20">
+        <!-- Left Column (col-md-8) -->
+        <div class="col-md-8 d-flex flex-column">
+          <div class="card pd-0 bd-0 shadow-base flex-fill">
+            <div class="pd-x-30 pd-t-30 pd-b-15">
+              <div class="d-flex align-items-center justify-content-between">
+                <div>
+                  <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Actividad de Tickets</h6>
+                  <p class="mg-b-0">Actividad de Tickets Durante los Meses</p>
+                </div>
+                <div class="tx-13">
+                  <p class="mg-b-0"><span class="square-8 rounded-circle bg-purple mg-r-10"></span> Tickets</p>
+                </div>
+              </div>
+            </div>
+            <div class="pd-x-15 pd-b-15 flex-fill">
+              <canvas id="ch1" class="br-chartist br-chartist-2 ht-200 ht-sm-300 flex-fill"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column (col-md-4) -->
+        <div class="col-md-4">
+          <div class="card bd-0 shadow-base pd-30">
+            <h6 class="tx-13 tx-uppercase tx-inverse tx-semibold tx-spacing-1">Tipos de Tickets</h6>
+            <p class="mg-b-25">Resumen de Tipo de Tickets Creados.</p>
+
+            <ng-container *ngFor="let ticket of ticketData; let i = index">
+              <label class="tx-12 tx-gray-600 mg-b-10">{{ ticket._id }}</label>
+              <div class="progress ht-5 mg-b-10">
+                <div class="progress-bar" [style.width.%]="ticket.count" [ngClass]="getProgressBarColor(i)"></div>
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="mg-t-20 tx-13">
+            <a (click)="adminTickets()">Ver Tickets</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div><!-- br-pagebody -->
+  <app-footer></app-footer>
+</div><!-- br-mainpanel -->
+
+

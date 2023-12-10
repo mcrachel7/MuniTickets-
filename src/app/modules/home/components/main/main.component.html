@@ -1,0 +1,21 @@
+<div  *ngIf="role=='administrador'">
+  <app-header></app-header>
+ <app-admin-side-bar></app-admin-side-bar>
+</div>
+
+<div *ngIf="role=='administrador'">
+ <app-dashboard></app-dashboard>
+</div>
+
+<div *ngIf="role=='usuario'">
+
+   <app-header></app-header>
+   <app-side-bar></app-side-bar>
+
+<app-user-dashboard></app-user-dashboard>
+
+</div>
+
+<div class="content" *ngIf="role!=='usuario' && role!=='administrador'">
+   <h4>No content avaiable for this role.</h4>
+</div>

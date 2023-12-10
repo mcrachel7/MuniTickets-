@@ -1,0 +1,44 @@
+.pos-relative {
+  position: relative;
+}
+
+.pos-absolute {
+  position: absolute;
+}
+
+.b--5 {
+  bottom: -5px;
+}
+
+.r--5 {
+  right: -5px;
+}
+
+.square-8 {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+
+.navicon-right {
+  position: relative;
+}
+/* Style the header container */
+.br-header {
+  padding: 10px; /* Add padding as needed */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+/* Style the menu toggle button/icon */
+.navicon-left button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Add styles for dropdowns or other header elements as needed */
+

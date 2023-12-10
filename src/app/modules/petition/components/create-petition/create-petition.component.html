@@ -1,0 +1,138 @@
+<div>
+  <app-header></app-header>
+  <app-admin-side-bar></app-admin-side-bar>
+
+<div class="br-mainpanel">
+
+  <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
+    <h4 class="tx-gray-800 mg-b-5">Crear Nuevo Dictamen</h4>
+    <p class="mg-b-0">El administrador puede crear dictamenes para confirmar que un equipo no está funcionando.</p>
+  </div>
+
+  <div class="br-pagebody">
+    <div class="br-section-wrapper">
+      <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Dictamen</h6>
+      <p class="mg-b-30 tx-gray-600">Ingresar cada uno de los campos para llenar los datos correctamente.</p>
+
+      <form [formGroup]="petitionForm"(ngSubmit)="onSubmit()" >
+        <div class="form-layout form-layout-1">
+          <div class="row mg-b-25">
+
+            <div class="col-lg-4">
+              <label class="form-control-label">Departmento: <span class="tx-danger">*</span></label>
+              <select class="form-control select2" formControlName="department" data-placeholder="Seleccione el Departamento">
+                <option label="Seleccione el Departamento"></option>
+                <option value="Obras Públicas">Obras Públicas</option>
+                <option value="Catastro">Catastro</option>
+                <option value="Tributación">Tributación</option>
+                <option value="Recursos Humanos">Recursos Humanos</option>
+                <option value="UMA">UMA</option>
+                <option value="Turismo">Turismo</option>
+                <option value="Contabilidad">Contabilidad</option>
+                <option value="Tesoreria">Tesoreria</option>
+                <option value="Contabilidad">Contabilidad</option>
+                <option value="Gobernabilidad">Gobernabilidad</option>
+                <option value="Relaciones Públicas">Relaciones Públicas</option>
+                <option value="Auditoría">Auditoría</option>
+                <option value="Desarrollo Agrícola">Desarrollo Agrícola</option>
+                <option value="Informática">Informática</option>
+                <option value="Alcaldía">Alcaldía</option>
+                <option value="Compras">Compras</option>
+                <option value="Secretaría">Secretaría</option>
+                <option value="Legal">Legal</option>
+                <option value="Regidores">Regidores</option>
+                <option value="Gerencia Administrativa">Gerencia Administrativa</option>
+              </select>
+              <div class="text-danger"
+              *ngIf="petitionForm.get('department')?.hasError('required') && petitionForm.get('department')?.touched">
+              <span>El departamento <strong>es obligatorio</strong></span>
+          </div>
+            </div>
+
+            <div class="col-lg-3">
+              <label class="form-control-label">Prefijo: </label>
+            <select class="form-control" formControlName="headOfDepartmentPrefix" data-placeholder="Seleccione el Prefijo">
+                <option label="Seleccione el Prefijo"></option>
+                <option value="Abog.">Abog</option>
+                <option value="Lic.">Lic</option>
+                <option value="Ing.">Ing</option>
+            </select>
+             </div><!-- col -->
+
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Nombre del Jefe de Departamento: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="headOfDepartment" placeholder="Ingrese el Nombre">
+                <div class="text-danger"
+                *ngIf="petitionForm.get('headOfDepartment')?.hasError('required') && petitionForm.get('headOfDepartment')?.touched">
+                <span>El Nombre del Jefe <strong>es obligatorio</strong></span>
+            </div>
+              </div>
+            </div><!-- col-4 -->
+
+
+            <div class="col-lg-4">
+                <label class="form-control-label">Tipo de Equipo: <span class="tx-danger">*</span></label>
+              <select class="form-control" formControlName="type" data-placeholder="Seleccione el Tipo">
+                  <option label="Seleccione el Tipo de Equipo"></option>
+                  <option value="Impresora">Impresora</option>
+                  <option value="Computadora">Computadora</option>
+              </select>
+              <div class="text-danger"
+                  *ngIf="petitionForm.get('type')?.hasError('required') && petitionForm.get('type')?.touched">
+              <span>El tipo de Equipo <strong>es obligatorio</strong></span>
+              </div>
+               </div><!-- col -->
+
+               <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Marca del Equipo: <span class="tx-danger">*</span></label>
+                  <input class="form-control" formControlName="brand" placeholder="Ingrese la Marca">
+                  <div class="text-danger"
+                  *ngIf="petitionForm.get('brand')?.hasError('required') && petitionForm.get('brand')?.touched">
+                  <span>La Marca <strong>es obligatoria</strong></span>
+              </div>
+                </div>
+              </div><!-- col-4 -->
+
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Modelo del Equipo: <span class="tx-danger">*</span></label>
+                  <input class="form-control" formControlName="model" placeholder="Ingrese el Modelo">
+                  <div class="text-danger"
+                  *ngIf="petitionForm.get('model')?.hasError('required') && petitionForm.get('model')?.touched">
+                  <span>El Modelo <strong>es obligatorio</strong></span>
+              </div>
+                </div>
+              </div><!-- col-4 -->
+
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Fecha del Dictamen: <span class="tx-danger">*</span></label>
+                  <input type="date" class="form-control" formControlName="date" placeholder="(MM/DD/YY)">
+                  <div class="text-danger"
+                  *ngIf="petitionForm.get('date')?.hasError('required') && petitionForm.get('date')?.touched">
+                  <span>La Fecha <strong>es obligatoria</strong></span>
+              </div>
+                </div>
+              </div><!-- col-4 -->
+
+
+
+
+
+          </div><!-- row -->
+        <div class="form-layout-footer">
+          <button type="submit" class="btn btn-info" [disabled]="!petitionForm.valid">Crear Dictamen</button>
+        </div><!-- form-layout-footer -->
+      </div><!-- form-layout -->
+      </form>
+
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+</div>
+
+

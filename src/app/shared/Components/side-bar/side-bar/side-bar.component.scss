@@ -1,0 +1,42 @@
+.inventory-menu {
+  padding-left: 20px;
+}
+
+.menu-item-arrow {
+  margin-left: auto;
+}
+
+/* Style the sidebar menu container */
+.br-sideleft {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 230px; /* Adjust the width as needed */
+  height: 100%; /* Set the background color */
+  z-index: 1000;
+  overflow-y: auto;
+  transition: left 0.3s; /* Add transition for smooth animation */
+}
+
+
+/* Style menu items */
+.br-menu-link {
+  display: block;
+  transition: background-color 0.2s;
+}
+
+
+/* Style the hide-menu class to hide the menu off-screen */
+.hide-menu {
+  left: -250px; /* Move the menu off-screen */
+}
+
+/* Add styles for other menu elements as needed */
+
+
+
+
+
+
+
+

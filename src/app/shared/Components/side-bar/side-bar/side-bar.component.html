@@ -1,0 +1,101 @@
+
+
+<div class="br-logo"><a href=""><span>[</span>MUNITICKETS<span>]</span></a></div>
+<div class="br-sideleft overflow-y-auto" [ngClass]="{'hide-menu': isMenuVisible}">
+  <label class="sidebar-label pd-x-15 mg-t-20">Navegación</label>
+
+  <div class="br-sideleft-menu">
+    <a (click)="home()" class="br-menu-link">
+      <div class="br-menu-item">
+        <i class="fa-solid fa-house"></i>
+        <span (click)="home()" class="menu-item-label">Home</span>
+
+      </div><!-- menu-item -->
+    </a><!-- br-menu-link -->
+
+    <a (click)="userNotification()" class="br-menu-link">
+      <div class="br-menu-item">
+        <i class="fa-solid fa-bell"></i>
+        <span (click)="userNotification()" class="menu-item-label">Notificaciones</span>
+      </div><!-- menu-item -->
+    </a><!-- br-menu-link -->
+
+    <a (click)="toggleTicketMenu()" class="br-menu-link">
+      <div class="br-menu-item">
+        <i class="fa-solid fa-ticket"></i>
+        <span class="menu-item-label">Tickets</span>
+        <i class="fa-solid fa-bars" [class.fa-angle-down]="showInventoryMenu" [class.fa-angle-right]="!showInventoryMenu"></i>
+      </div><!-- menu-item -->
+    </a><!-- br-menu-link -->
+
+    <div *ngIf="showTicketMenu" class="inventory-menu">
+      <a (click)="createTicket()" class="br-menu-link">
+        <div class="br-menu-item">
+          <i class="fa-solid fa-minus"></i>
+          <span class="menu-item-label">Nuevo Ticket</span>
+        </div><!-- menu-item -->
+      </a><!-- br-menu-link -->
+    </div>
+
+    <div *ngIf="showTicketMenu" class="inventory-menu">
+      <a (click)="viewHistory()" class="br-menu-link">
+        <div class="br-menu-item">
+          <i class="fa-solid fa-minus"></i>
+          <span class="menu-item-label">Ver Ticket</span>
+        </div><!-- menu-item -->
+      </a><!-- br-menu-link -->
+    </div>
+
+
+
+
+    <a (click)="toggleInventoryMenu()" class="br-menu-link">
+      <div class="br-menu-item">
+        <i class="fa-solid fa-book"></i>
+        <span class="menu-item-label">Inventario</span>
+        <i class="fa-solid fa-bars" [class.fa-angle-down]="showInventoryMenu" [class.fa-angle-right]="!showInventoryMenu"></i>
+      </div><!-- menu-item -->
+    </a><!-- br-menu-link -->
+
+    <div *ngIf="showInventoryMenu" class="inventory-menu">
+      <a (click)="newInventory()" class="br-menu-link">
+        <div class="br-menu-item">
+          <i class="fa-solid fa-minus"></i>
+          <span class="menu-item-label">Nuevo Inventario</span>
+        </div><!-- menu-item -->
+      </a><!-- br-menu-link -->
+    </div>
+
+    <div *ngIf="showInventoryMenu" class="inventory-menu">
+      <a (click)="viewInventory()" class="br-menu-link">
+        <div class="br-menu-item">
+          <i class="fa-solid fa-minus"></i>
+          <span class="menu-item-label">Ver Inventario</span>
+        </div><!-- menu-item -->
+      </a><!-- br-menu-link -->
+    </div>
+
+
+    <a (click)="viewFAQs()" class="br-menu-link">
+      <div class="br-menu-item">
+        <i class="fa-solid fa-question"></i>
+        <span (click)="viewFAQs()" class="menu-item-label">FAQs</span>
+
+      </div><!-- menu-item -->
+    </a><!-- br-menu-link -->
+
+    <a (click)="logOut()"class="br-menu-link">
+      <div class="br-menu-item">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span (click)="logOut()" class="menu-item-label">Cerrar Sesión</span>
+
+      </div><!-- menu-item -->
+    </a><!-- br-menu-link -->
+
+
+  </div><!-- br-sideleft-menu -->
+</div><!-- br-sideleft -->
+
+
+
+

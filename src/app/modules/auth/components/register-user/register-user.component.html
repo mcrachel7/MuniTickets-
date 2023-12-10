@@ -1,0 +1,26 @@
+
+
+<div class="d-flex align-items-center justify-content-center bg-br-primary ht-100v">
+
+  <div class="login-wrapper wd-300 wd-xs-400 pd-25 pd-xs-40 bg-white rounded shadow-base">
+    <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal">[</span> MuniTickets <span class="tx-normal">]</span></div>
+    <div class="tx-center mg-b-40">Regístrate para empezar a Reportar tus Tickets</div>
+
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Ingresa tu Nombre" name="username" [(ngModel)]="username">
+    </div><!-- form-group -->
+    <div class="form-group">
+      <input type="email" class="form-control" placeholder="Ingresa tu Correo" name="email" [(ngModel)]="email">
+    </div><!-- form-group -->
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Ingresa tu Contraseña" name="password1" [(ngModel)]="pass1">
+    </div><!-- form-group -->
+    <div class="form-group">
+      <input type="password" class="form-control" placeholder="Confirma tu Contraseña" name="password2" [(ngModel)]="pass2">
+    </div><!-- form-group -->
+    <div class="form-group tx-12">Al hacer clic en el botón Registrarme, estarías aceptando nuestra política de privacidad y los términos de uso de nuestro sitio web.</div>
+    <button type="submit" class="btn btn-info btn-block" value="Registrar usuario" (click)="registerUser()">Registrarme</button>
+
+    <div class="mg-t-40 tx-center">Ya tienes una Cuenta? <a routerLink="/auth/login" routerLinkActive="active" class="tx-info">Inicia Sesión</a></div>
+  </div><!-- login-wrapper -->
+</div><!-- d-flex -->

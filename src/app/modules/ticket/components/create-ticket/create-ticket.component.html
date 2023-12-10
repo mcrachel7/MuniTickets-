@@ -1,0 +1,125 @@
+<div>
+  <app-header></app-header>
+  <app-side-bar></app-side-bar>
+
+<div class="br-mainpanel">
+
+  <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
+    <h4 class="tx-gray-800 mg-b-5">{{ h4title}}</h4>
+    <p class="mg-b-0">{{ pTitle}}</p>
+  </div>
+
+  <div class="br-pagebody">
+    <div class="br-section-wrapper">
+      <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Tickets</h6>
+      <p class="mg-b-30 tx-gray-600">{{ pTitle2 }}</p>
+
+      <form [formGroup]="ticketForm" (ngSubmit)="addTicket()">
+        <div class="form-layout form-layout-1">
+          <div class="row mg-b-25">
+            <div class="col-lg-4">
+              <div class="form-group" >
+                <label class="form-control-label">Nombre Completo: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="FullName" placeholder="Ingresar el Nombre Completo">
+                <div class="text-danger"
+                              *ngIf="ticketForm.get('FullName')?.hasError('required') && ticketForm.get('FullName')?.touched">
+                              <span>Su nombre <strong>es obligatorio</strong></span>
+                </div>
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+              <label class="form-control-label">Departmento: <span class="tx-danger">*</span></label>
+              <select class="form-control select2" formControlName="department" data-placeholder="Seleccione el Departamento">
+                <option label="Seleccione el Departamento"></option>
+                <option value="Obras Públicas">Obras Públicas</option>
+                <option value="Catastro">Catastro</option>
+                <option value="Tributación">Tributación</option>
+                <option value="Recursos Humanos">Recursos Humanos</option>
+                <option value="UMA">UMA</option>
+                <option value="Turismo">Turismo</option>
+                <option value="Contabilidad">Contabilidad</option>
+                <option value="Tesoreria">Tesoreria</option>
+                <option value="Contabilidad">Contabilidad</option>
+                <option value="Gobernabilidad">Gobernabilidad</option>
+                <option value="Relaciones Públicas">Relaciones Públicas</option>
+                <option value="Auditoría">Auditoría</option>
+                <option value="Desarrollo Agrícola">Desarrollo Agrícola</option>
+                <option value="Informática">Informática</option>
+                <option value="Alcaldía">Alcaldía</option>
+                <option value="Compras">Compras</option>
+                <option value="Secretaría">Secretaría</option>
+                <option value="Legal">Legal</option>
+                <option value="Regidores">Regidores</option>
+                <option value="Gerencia Administrativa">Gerencia Administrativa</option>
+              </select>
+              <div class="text-danger"
+              *ngIf="ticketForm.get('department')?.hasError('required') && ticketForm.get('department')?.touched">
+              <span>El departamento <strong>es obligatorio</strong></span>
+          </div>
+            </div>
+            <div class="col-lg-4">
+                <label class="form-control-label">Tipo: <span class="tx-danger">*</span></label>
+              <select class="form-control" formControlName="type" data-placeholder="Seleccione el Tipo de Ticket">
+                  <option label="Seleccione el Tipo de Ticket"></option>
+                  <option value="Impresora">Impresora</option>
+                  <option value="Computadora">Computadora</option>
+                  <option value="Periféricos">Periféricos </option>
+                  <option value="Carnet">Carnet</option>
+                  <option value="Otros">Otros</option>
+              </select>
+              <div class="text-danger"
+                  *ngIf="ticketForm.get('type')?.hasError('required') && ticketForm.get('type')?.touched">
+              <span>El tipo de Ticket <strong>es obligatorio</strong></span>
+              </div>
+               </div><!-- col -->
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Título: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="title" placeholder="Ingrese el Título del Ticket">
+                <div class="text-danger"
+                *ngIf="ticketForm.get('title')?.hasError('required') && ticketForm.get('title')?.touched">
+                <span>El titulo del ticket <strong>es obligatorio</strong></span>
+            </div>
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-8">
+              <div class="form-group">
+                <label class="form-control-label">Descripción: <span class="tx-danger">*</span></label>
+                <textarea class="form-control" formControlName="description" placeholder="Ingrese la descripción del Ticket"></textarea>
+                <div class="text-danger"
+                *ngIf="ticketForm.get('description')?.hasError('required') && ticketForm.get('description')?.touched">
+                <span>La descripción <strong>es obligatoria</strong></span>
+            </div>
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-4">
+              <div class="form-group mg-b-10-force">
+                <label class="form-control-label">Estado: <span class="tx-danger">*</span></label>
+                <select class="form-control select2" formControlName="status" data-placeholder="Seleccione el Estado del Ticket">
+                  <option label="Seleccione el Estado del Ticket"></option>
+                  <option value="Abierto">Abierto</option>
+                  <option label="En Proceso" disabled >En Proceso</option>
+                  <option label="Terminado" disabled >Terminado</option>
+                  <option value="Cerrado">Cerrado</option>
+                </select>
+                <div class="text-danger"
+                  *ngIf="ticketForm.get('status')?.hasError('required') && ticketForm.get('status')?.touched">
+                 <span>El estado del Ticket <strong>es obligatorio</strong></span>
+                  </div>
+              </div>
+            </div><!-- col-8 -->
+
+
+          </div><!-- row -->
+        <div class="form-layout-footer">
+          <button type="submit" class="btn btn-info" [disabled]="!ticketForm.valid">{{buttonTitle}}</button>
+        </div><!-- form-layout-footer -->
+      </div><!-- form-layout -->
+      </form>
+
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+</div>

@@ -1,0 +1,140 @@
+<div *ngIf="role=='usuario'">
+  <app-header></app-header>
+  <app-side-bar></app-side-bar>
+
+<div class="br-mainpanel">
+
+  <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
+    <h4 class="tx-gray-800 mg-b-5">Preguntas Frecuentes (FAQs)</h4>
+    <p class="mg-b-0">Preguntas frecuentes para responder dudas de soporte técnico.</p>
+  </div>
+
+  <div class="br-pagebody">
+    <div class="br-section-wrapper">
+      <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">FAQs</h6>
+      <p class="mg-b-30 tx-gray-600">Observa las preguntas y respuestas con imágenes para mejor ejemplo.</p>
+
+      <form [formGroup]="FaqsForm">
+        <div class="form-layout form-layout-1">
+          <div class="row mg-b-25">
+            <div class="col-lg-8">
+              <div class="form-group">
+                <label class="form-control-label">Pregunta: <span class="tx-danger">*</span></label>
+                <textarea class="form-control" formControlName="title" placeholder="Ingrese la Pregunta"> </textarea>
+
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-8">
+              <div class="form-group">
+                <label class="form-control-label">Respuesta: <span class="tx-danger">*</span></label>
+                <textarea class="form-control" formControlName="description" placeholder="Ingrese la Respuesta"></textarea>
+
+              </div>
+            </div><!-- col-4 -->
+
+            <div class="col-lg-4">
+                <label class="form-control-label">Tipo: <span class="tx-danger">*</span></label>
+              <select class="form-control" formControlName="type" data-placeholder="Seleccione el Tipo de Pregunta">
+                  <option label="Seleccione el Tipo de Pregunta"></option>
+                  <option value="Impresora">Impresora</option>
+                  <option value="Computadora">Computadora</option>
+                  <option value="Periferícos">Periferícos</option>
+                  <option value="Carnet">Carnet</option>
+                  <option value="Otros">Otros</option>
+              </select>
+
+               </div><!-- col -->
+
+
+               <div class="col-lg-8">
+                <div class="card bd-0">
+                  <img class="card-img-bottom img-fluid" [src]="FaqsForm.get('image')?.value || ''" alt="Image">
+                </div><!-- card -->
+              </div><!-- col -->
+
+          </div><!-- row -->
+        <div class="form-layout-footer">
+          <button (click)="backFAQs()" type="submit" class="btn btn-info">Atrás </button>
+        </div><!-- form-layout-footer -->
+      </div><!-- form-layout -->
+      </form>
+
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+</div>
+
+<div *ngIf="role=='administrador'">
+<app-header></app-header>
+<app-admin-side-bar></app-admin-side-bar>
+
+<div class="br-mainpanel">
+
+  <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
+    <h4 class="tx-gray-800 mg-b-5">Preguntas Frecuentes (FAQs)</h4>
+    <p class="mg-b-0">Preguntas frecuentes para responder dudas de soporte técnico.</p>
+  </div>
+
+  <div class="br-pagebody">
+    <div class="br-section-wrapper">
+      <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">FAQs</h6>
+      <p class="mg-b-30 tx-gray-600">Observa las preguntas y respuestas con imágenes para mejor ejemplo.</p>
+
+      <form [formGroup]="FaqsForm">
+        <div class="form-layout form-layout-1">
+          <div class="row mg-b-25">
+            <div class="col-lg-8">
+              <div class="form-group">
+                <label class="form-control-label">Pregunta: <span class="tx-danger">*</span></label>
+                <textarea class="form-control" formControlName="title" placeholder="Ingrese la Pregunta"> </textarea>
+
+              </div>
+            </div><!-- col-4 -->
+            <div class="col-lg-8">
+              <div class="form-group">
+                <label class="form-control-label">Respuesta: <span class="tx-danger">*</span></label>
+                <textarea class="form-control" formControlName="description" placeholder="Ingrese la Respuesta"></textarea>
+
+              </div>
+            </div><!-- col-4 -->
+
+            <div class="col-lg-4">
+                <label class="form-control-label">Tipo: <span class="tx-danger">*</span></label>
+              <select class="form-control" formControlName="type" data-placeholder="Seleccione el Tipo de Pregunta">
+                  <option label="Seleccione el Tipo de Pregunta"></option>
+                  <option value="Impresora">Impresora</option>
+                  <option value="Computadora">Computadora</option>
+                  <option value="Periferícos">Periferícos</option>
+                  <option value="Carnet">Carnet</option>
+                  <option value="Otros">Otros</option>
+              </select>
+
+               </div><!-- col -->
+
+
+               <div class="col-lg-8">
+                <div class="card bd-0">
+                  <img class="card-img-bottom img-fluid" [src]="FaqsForm.get('image')?.value || ''" alt="Image">
+                </div><!-- card -->
+              </div><!-- col -->
+
+
+
+          </div><!-- row -->
+        <div class="form-layout-footer">
+          <button  (click)="backFAQs()" type="submit" class="btn btn-info">Atrás </button>
+        </div><!-- form-layout-footer -->
+      </div><!-- form-layout -->
+      </form>
+
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+</div>
+
+
+

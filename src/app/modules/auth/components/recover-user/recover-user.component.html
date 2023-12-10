@@ -1,0 +1,26 @@
+
+
+<div class="d-flex align-items-center justify-content-center bg-br-primary ht-100v">
+  <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
+    <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal">[</span> MuniTickets <span class="tx-normal">]</span></div>
+    <div class="tx-center mg-b-60">Recupera tu Cuenta</div>
+
+    <!-- Display success message if resetRequestSuccess is true -->
+    <div *ngIf="resetRequestSuccess" class="form-group tx-15 tx-center">Se ha enviado un código a tu correo</div>
+
+    <!-- Display error message if resetError is not empty -->
+    <div *ngIf="resetError" class="form-group tx-15 tx-center">No se puedo enviar el código a tu correo</div>
+
+    <!-- Reset password form -->
+    <form [formGroup]="resetForm" (ngSubmit)="onSubmitResetRequest()">
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Ingresa tu Correo" formControlName="email">
+      </div>
+
+      <button type="submit" class="btn btn-info btn-block">Enviar Código</button>
+    </form>
+
+    <div class="mg-t-60 tx-center">No tienes Cuenta? <a routerLink="/auth/register-user" routerLinkActive="active" class="tx-info">Regístrate</a></div>
+  </div><!-- login-wrapper -->
+</div><!-- d-flex -->
+

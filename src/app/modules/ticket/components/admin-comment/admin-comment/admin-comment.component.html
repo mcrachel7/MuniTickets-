@@ -1,0 +1,115 @@
+<div>
+  <app-header></app-header>
+  <app-admin-side-bar></app-admin-side-bar>
+
+<div class="br-mainpanel">
+
+  <div class="pd-x-20 pd-sm-x-30 pd-t-20 pd-sm-t-30">
+    <h4 class="tx-gray-800 mg-b-5">Actualización de Ticket</h4>
+    <p class="mg-b-0">El administrador puede agregar una observación para explicar los procesos realizados y actualizar estados.</p>
+  </div>
+
+  <div class="br-pagebody">
+    <div class="br-section-wrapper">
+      <h6 class="tx-gray-800 tx-uppercase tx-bold tx-14 mg-b-10">Tickets</h6>
+      <p class="mg-b-30 tx-gray-600">Solo se puede agregar una observación y actualizar el estado del Ticket, otros cambios, no serán guardados.</p>
+
+      <form [formGroup]="ticketForm" (ngSubmit)="onSubmit()">
+        <div class="form-layout form-layout-1">
+          <div class="row mg-b-25">
+            <div class="col-lg-4">
+              <div class="form-group" >
+                <label class="form-control-label">Nombre Completo: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="FullName" placeholder="Ingresar el Nombre Completo">
+              </div>
+            </div><!-- col-4 -->
+
+            <div class="col-lg-4">
+              <label class="form-control-label">Departmento: <span class="tx-danger">*</span></label>
+              <select class="form-control select2" formControlName="department" data-placeholder="Seleccione el Departamento">
+                <option label="Seleccione el Departamento" disabled></option>
+                <option value="Obras Públicas" disabled>Obras Públicas</option>
+                <option value="Catastro" disabled>Catastro</option>
+                <option value="Tributación" disabled>Tributación</option>
+                <option value="Recursos Humanos" disabled>Recursos Humanos</option>
+                <option value="UMA" disabled>UMA</option>
+                <option value="Turismo" disabled>Turismo</option>
+                <option value="Contabilidad" disabled>Contabilidad</option>
+                <option value="Tesoreria" disabled>Tesoreria</option>
+                <option value="Contabilidad" disabled>Contabilidad</option>
+                <option value="Gobernabilidad" disabled>Gobernabilidad</option>
+                <option value="Relaciones Públicas" disabled>Relaciones Públicas</option>
+                <option value="Auditoría" disabled>Auditoría</option>
+                <option value="Desarrollo Agrícola" disabled>Desarrollo Agrícola</option>
+                <option value="Informática" disabled>Informática</option>
+                <option value="Alcaldía" disabled>Alcaldía</option>
+                <option value="Compras" disabled>Compras</option>
+                <option value="Secretaría" disabled>Secretaría</option>
+                <option value="Legal" disabled>Legal</option>
+                <option value="Regidores" disabled>Regidores</option>
+                <option value="Gerencia Administrativa" disabled>Gerencia Administrativa</option>
+              </select>
+            </div>
+
+            <div class="col-lg-4">
+                <label class="form-control-label">Tipo: <span class="tx-danger">*</span></label>
+              <select class="form-control" formControlName="type" data-placeholder="Seleccione el Tipo de Ticket">
+                  <option label="Seleccione el Tipo de Ticket" disabled></option>
+                  <option value="Impresora" disabled>Impresora</option>
+                  <option value="Computadora" disabled>Computadora</option>
+                  <option value="Periféricos" disabled>Periféricos </option>
+                  <option value="Carnet" disabled>Carnet</option>
+                  <option value="Otros" disabled>Otros</option>
+              </select>
+               </div><!-- col -->
+
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label">Título: <span class="tx-danger">*</span></label>
+                <input class="form-control" formControlName="title" placeholder="Ingrese el Título del Ticket">
+              </div>
+            </div><!-- col-4 -->
+
+            <div class="col-lg-8">
+              <div class="form-group">
+                <label class="form-control-label">Descripción: <span class="tx-danger">*</span></label>
+                <textarea class="form-control" formControlName="description" placeholder="Ingrese la descripción del Ticket"></textarea>
+              </div>
+            </div><!-- col-4 -->
+
+
+            <div class="col-lg-4">
+              <div class="form-group mg-b-10-force">
+                <label class="form-control-label">Estado: <span class="tx-danger">*</span></label>
+                <select class="form-control select2" formControlName="status" data-placeholder="Seleccione el Estado del Ticket">
+                  <option label="Seleccione el Estado del Ticket" disabled></option>
+                  <option label="Abierto" disabled >Abierto</option>
+                  <option value="En Proceso">En Proceso</option>
+                  <option value="Terminado">Terminado</option>
+                  <option label="Cerrado" disabled >Cerrado</option>
+                </select>
+              </div>
+            </div><!-- col-8 -->
+
+
+            <div class="col-lg-8">
+              <div class="form-group" >
+                <label class="form-control-label">Observaciones: <span class="tx-danger">*</span></label>
+                <textarea class="form-control" formControlName="adminComment" placeholder="Ingrese las Observaciones del Ticket"></textarea>
+              </div>
+            </div><!-- col-4 -->
+
+          </div><!-- row -->
+        <div class="form-layout-footer">
+          <button type="submit" class="btn btn-info">Actualizar Ticket </button>
+        </div><!-- form-layout-footer -->
+      </div><!-- form-layout -->
+      </form>
+
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>
+
+</div>
+
